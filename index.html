@@ -162,40 +162,6 @@
             color: var(--secondary);
         }
 
-        /* Course Path */
-        /* .course-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 30px;
-        }
-
-        .course-card {
-            background: white;
-            border-radius: 25px;
-            padding: 30px;
-            position: relative;
-            box-shadow: 10px 10px 0px var(--sky);
-            border: 2px solid #eee;
-        }
-
-        .course-card h3 {
-            color: var(--white);
-            background: var(--primary);
-            display: inline-block;
-            padding: 5px 20px;
-            border-radius: 50px;
-            margin-bottom: 15px;
-        }
-
-        .course-card ul {
-            list-style: none;
-            margin-top: 15px;
-        }
-
-        .course-card li::before {
-            content: '🚀';
-            margin-right: 10px;
-        } */
 
         /* Contest Tags */
         .contest-box {
@@ -291,6 +257,25 @@
             font-size: 0.8rem;
             margin-bottom: 10px;
             display: inline-block;
+        }
+
+        /* Full-bleed (寬度全滿) 圖片區塊 */
+        .full-bleed {
+            width: 100% ;
+            margin: 0;
+            padding-left: 5%;
+            padding-right: 5%;
+            padding-top: 5%;
+            overflow: hidden;
+        }
+        .full-bleed img {
+            display: block;
+            width: 100%;
+            /* height: 340px; */
+            object-fit: cover;
+        }
+        @media (max-width: 600px) {
+            .full-bleed img { height: 180px; }
         }
 
         /* Line Contact Section */
@@ -424,45 +409,24 @@
                 <p style="font-size: 0.9rem; color: #666;">✨ Python 基礎、遊戲開發專案</p>
             </div>
         </div>
+         <!-- 寬度全滿的圖片區塊（請把實際圖片放到 images/ 並改名對應檔名） -->
+        <div class="full-bleed">
+            <img src="P1.jpg" alt="課程大綱">
+        </div>
+        <div class="full-bleed">
+            <img src="P2.jpg" alt="低年級課程">
+        </div>
+        <div class="full-bleed">
+            <img src="P3.jpg" alt="中年級課程">
+        </div>
+         <div class="full-bleed">
+            <img src="P4.jpg" alt="中年級課程">
+        </div>
+        <div class="full-bleed">
+            <img src="P5.jpg" alt="高年級課程">
+        </div>
     </section>    
 
-    <!-- <section id="courses" style="background-color: #f9f9f9;">
-        <h2>課程探險地圖</h2>
-        <div class="course-grid">
-            <div class="course-card">
-                <h3>啟蒙：低年級</h3>
-                <p><strong>邏輯遊樂園：</strong>不插電程式課，透過機器人指令卡學會演算法！</p>
-                <ul>
-                    <li>OctoStudio 互動遊戲</li>
-                    <li>指令機器人遊戲</li>
-                </ul>
-            </div>
-            <div class="course-card">
-                <h3>核心：中年級</h3>
-                <p><strong>創意積木王：</strong>Scratch 圖像程式與機械結構，打造會動的 3D 模型。</p>
-                <ul>
-                    <li>動畫遊戲設計師</li>
-                    <li>3D 機構科學班</li>
-                </ul>
-            </div>
-            <div class="course-card">
-                <h3>應用：中高年級</h3>
-                <p><strong>科技實踐家：</strong>無人機、AI 辨識與 App 開發，讓想像力在手機與虛擬世界成真。</p>
-                <ul>
-                    <li>AI 智能無人機</li>
-                    <li>元宇宙 VR 空間設計</li>
-                </ul>
-            </div>
-            <div class="course-card">
-                <h3>挑戰：高年級</h3>
-                <p><strong>語法小駭客：</strong>銜接 Python 程式語言，從圖形轉向專業文字寫作。</p>
-                <ul>
-                    <li>Python 基礎語法班</li>
-                    <li>Python 遊戲開發員</li>
-                </ul>
-            </div>
-        </div>
-    </section> -->
 
     <section id="contests">
         <h2>科技榮譽殿堂</h2>
@@ -475,25 +439,6 @@
             <div class="contest-tag">中小學資訊應用賽</div>
         </div>
     </section>
-
-    <!-- <section id="contact">
-        <h2>跟我們一起探險吧！</h2>
-        <div class="contact-container">
-            <form>
-                <input type="text" placeholder="寶貝姓名" required>
-                <input type="text" placeholder="家長聯絡電話" required>
-                <select style="padding: 15px; border-radius: 15px; border: 2px solid #FF9F1C55;">
-                    <option>感興趣的課程階段</option>
-                    <option>低年級啟蒙</option>
-                    <option>中年級核心</option>
-                    <option>中高年級應用</option>
-                    <option>高年級 Python</option>
-                </select>
-                <textarea rows="4" placeholder="有什麼悄悄話想告訴老師嗎？"></textarea>
-                <button type="button">預約免費體驗課程</button>
-            </form>
-        </div>
-    </section> -->
 
 
     <section id="line-contact">
