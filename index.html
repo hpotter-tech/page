@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>小小科技探險家 | 哈波特文教</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;700;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #FF9F1C; /* 活潑橘 */
+            --secondary: #2EC4B6; /* 清新綠 */
+            --accent: #E71D36; /* 亮麗紅 */
+            --sky: #CBF3F0; /* 天空藍 */
+            --white: #ffffff;
+            --text: #2B2D42;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Noto Sans TC', sans-serif;
+        }
+
+        body {
+            background-color: #FDFFFC;
+            color: var(--text);
+            overflow-x: hidden;
+        }
+
+        /* 背景裝飾圓圈 */
+        body::before {
+            content: '';
+            position: fixed;
+            top: -100px;
+            right: -100px;
+            width: 300px;
+            height: 300px;
+            background: var(--sky);
+            border-radius: 50%;
+            z-index: -1;
+            opacity: 0.5;
+        }
+
+        /* Navigation */
+        nav {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 15px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            border-bottom: 4px solid var(--primary);
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 900;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 20px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text);
+            font-weight: 700;
+            padding: 8px 15px;
+            border-radius: 20px;
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover {
+            background: var(--primary);
+            color: white;
+        }
+
+        /* Hero Section */
+        header {
+            background: var(--sky);
+            padding: 80px 5%;
+            text-align: center;
+            border-radius: 0 0 50% 50% / 0 0 10% 10%;
+            margin-bottom: 50px;
+        }
+
+        .hero-tag {
+            background: var(--accent);
+            color: white;
+            padding: 5px 20px;
+            border-radius: 50px;
+            display: inline-block;
+            margin-bottom: 20px;
+            font-weight: bold;
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-5px); }
+        }
+
+        header h1 {
+            font-size: 3rem;
+            color: var(--text);
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 0px white;
+        }
+
+        /* Sections */
+        section {
+            padding: 60px 10%;
+        }
+
+        h2 {
+            text-align: center;
+            font-size: 2.2rem;
+            margin-bottom: 40px;
+            color: var(--primary);
+            background: #fff;
+            display: table;
+            margin: 0 auto 40px;
+            padding: 5px 20px;
+            border: 3px dashed var(--primary);
+            border-radius: 15px;
+        }
+
+        /* Feature Cards */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 25px;
+        }
+
+        .feature-card {
+            background: white;
+            padding: 30px;
+            border-radius: 30px;
+            text-align: center;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+            border-bottom: 8px solid var(--secondary);
+            transition: 0.3s;
+        }
+
+        .feature-card:hover {
+            transform: scale(1.05);
+            background: #F0FFFD;
+        }
+
+        .feature-card h3 {
+            margin-bottom: 15px;
+            color: var(--secondary);
+        }
+
+        /* Course Path */
+        /* .course-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+        }
+
+        .course-card {
+            background: white;
+            border-radius: 25px;
+            padding: 30px;
+            position: relative;
+            box-shadow: 10px 10px 0px var(--sky);
+            border: 2px solid #eee;
+        }
+
+        .course-card h3 {
+            color: var(--white);
+            background: var(--primary);
+            display: inline-block;
+            padding: 5px 20px;
+            border-radius: 50px;
+            margin-bottom: 15px;
+        }
+
+        .course-card ul {
+            list-style: none;
+            margin-top: 15px;
+        }
+
+        .course-card li::before {
+            content: '🚀';
+            margin-right: 10px;
+        } */
+
+        /* Contest Tags */
+        .contest-box {
+            background: var(--secondary);
+            padding: 40px;
+            border-radius: 40px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .contest-tag {
+            background: white;
+            padding: 12px 25px;
+            border-radius: 50px;
+            font-weight: bold;
+            color: var(--secondary);
+            box-shadow: 0 4px 0px #1fa398;
+        }
+
+        /* Contact Form */
+        .contact-container {
+            background: #FF9F1C11;
+            padding: 40px;
+            border-radius: 40px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        form {
+            display: grid;
+            gap: 15px;
+        }
+
+        input, textarea {
+            padding: 15px;
+            border: 2px solid #FF9F1C55;
+            border-radius: 15px;
+            font-size: 1rem;
+        }
+
+        button {
+            background: var(--accent);
+            color: white;
+            border: none;
+            padding: 15px;
+            border-radius: 15px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            cursor: pointer;
+            box-shadow: 0 5px 0px #b01226;
+        }
+
+        button:active {
+            transform: translateY(3px);
+            box-shadow: none;
+        }
+
+        footer {
+            text-align: center;
+            padding: 40px;
+            background: var(--text);
+            color: white;
+            margin-top: 50px;
+        }
+         /* Course Cards */
+        section { padding: 60px 8%; }
+        h2 { text-align: center; margin-bottom: 40px; color: var(--primary); font-size: 2rem; }
+
+        .course-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        .course-card {
+            background: white;
+            border-radius: 25px;
+            padding: 25px;
+            border: 2px solid #eee;
+            box-shadow: 8px 8px 0px var(--sky);
+            transition: 0.3s;
+        }
+
+        .course-card:hover { transform: translateY(-5px); }
+
+        .badge {
+            background: var(--secondary);
+            color: white;
+            padding: 4px 12px;
+            border-radius: 10px;
+            font-size: 0.8rem;
+            margin-bottom: 10px;
+            display: inline-block;
+        }
+
+        /* Line Contact Section */
+        .line-section {
+            background: #f0fdf4;
+            text-align: center;
+            padding: 80px 5%;
+            border-radius: 50px;
+            margin: 20px 5%;
+            border: 3px dashed var(--line-green);
+        }
+
+        .line-button {
+            display: inline-flex;
+            align-items: center;
+            background-color: var(--line-green);
+            color: white;
+            text-decoration: none;
+            padding: 18px 35px;
+            border-radius: 50px;
+            font-size: 1.4rem;
+            font-weight: 900;
+            box-shadow: 0 6px 0px #04943f;
+            transition: 0.2s;
+            margin-top: 20px;
+        }
+
+        .line-button i {
+            font-size: 2rem;
+            margin-right: 15px;
+        }
+
+        .line-button:active {
+            transform: translateY(4px);
+            box-shadow: 0 2px 0px #04943f;
+        }
+
+        .qr-code {
+            margin-top: 30px;
+            width: 200px;
+            border: 5px solid white;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+
+        /* footer {
+            text-align: center;
+            padding: 30px;
+            background: var(--text);
+            color: white;
+        } */
+
+
+        /* RWD */
+        @media (max-width: 768px) {
+            .course-grid { grid-template-columns: 1fr; }
+            header h1 { font-size: 2rem; }
+            .nav-links { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo">🚀 哈波特科技小奇兵</div>
+        <ul class="nav-links">
+            <li><a href="#features">特色</a></li>
+            <li><a href="#courses">課程</a></li>
+            <li><a href="#contests">競賽</a></li>
+            <li><a href="#line-contact">諮詢</a></li>
+        </ul>
+    </nav>
+
+    <header>
+        <div class="hero-tag">適齡適性 • 啟發創意</div>
+        <h1>玩出競爭力，學會 AI 與程式！</h1>
+        <p>不只是螢幕前的學習，更是動手做的樂趣</p>
+    </header>
+
+    <section id="features">
+        <h2>為什麼選擇我們？</h2>
+        <div class="features-grid">
+            <div class="feature-card">
+                <h3>💡 邏輯動腦</h3>
+                <p>從小培養解決問題的腦袋，讓孩子看事情的角度不一樣！</p>
+            </div>
+            <div class="feature-card">
+                <h3>🛠️ 實作好玩</h3>
+                <p>從無人機到機器人，親手組裝、親自編寫，科技超有感。</p>
+            </div>
+            <div class="feature-card">
+                <h3>📱 未來趨勢</h3>
+                <p>AI、App、元宇宙，讓孩子成為數位世界的創造者。</p>
+            </div>
+            <div class="feature-card">
+                <h3>🏆 賽事肯定</h3>
+                <p>專業教練輔導挑戰國內外競賽，建立孩子的自信心。</p>
+            </div>
+        </div>
+    </section>
+
+
+    <section id="courses">
+        <h2>探險課程地圖</h2>
+        <div class="course-grid">
+            <div class="course-card">
+                <span class="badge">低年級</span>
+                <h3>啟蒙：邏輯遊樂園</h3>
+                <p>不插電程式遊戲，培養基礎演算法思維。</p>
+                <hr style="margin:10px 0; border:0; border-top:1px solid #eee;">
+                <p style="font-size: 0.9rem; color: #666;">✨ 指令機器人、OctoStudio 互動設計</p>
+            </div>
+            <div class="course-card">
+                <span class="badge">中年級</span>
+                <h3>核心：程式扎根機構設計</h3>
+                <p>Scratch 圖像程式設計，常見機構與 3D 建模。</p>
+                <hr style="margin:10px 0; border:0; border-top:1px solid #eee;">
+                <p style="font-size: 0.9rem; color: #666;">✨ 動畫遊戲王、小小機關王</p>
+            </div>
+            <div class="course-card">
+                <span class="badge" style="background:var(--primary)">中高年級</span>
+                <h3>應用：科技實踐家</h3>
+                <p>AI 無人機操控、手機 App 開發與 VR 實境建構。</p>
+                <hr style="margin:10px 0; border:0; border-top:1px solid #eee;">
+                <p style="font-size: 0.9rem; color: #666;">✨ AI 智能機器人、元宇宙 VR</p>
+            </div>
+            <div class="course-card">
+                <span class="badge" style="background:var(--accent)">高年級</span>
+                <h3>挑戰：語法小駭客</h3>
+                <p>由圖像轉向文字，掌握 Python 專業程式語言。</p>
+                <hr style="margin:10px 0; border:0; border-top:1px solid #eee;">
+                <p style="font-size: 0.9rem; color: #666;">✨ Python 基礎、遊戲開發專案</p>
+            </div>
+        </div>
+    </section>    
+
+    <!-- <section id="courses" style="background-color: #f9f9f9;">
+        <h2>課程探險地圖</h2>
+        <div class="course-grid">
+            <div class="course-card">
+                <h3>啟蒙：低年級</h3>
+                <p><strong>邏輯遊樂園：</strong>不插電程式課，透過機器人指令卡學會演算法！</p>
+                <ul>
+                    <li>OctoStudio 互動遊戲</li>
+                    <li>指令機器人遊戲</li>
+                </ul>
+            </div>
+            <div class="course-card">
+                <h3>核心：中年級</h3>
+                <p><strong>創意積木王：</strong>Scratch 圖像程式與機械結構，打造會動的 3D 模型。</p>
+                <ul>
+                    <li>動畫遊戲設計師</li>
+                    <li>3D 機構科學班</li>
+                </ul>
+            </div>
+            <div class="course-card">
+                <h3>應用：中高年級</h3>
+                <p><strong>科技實踐家：</strong>無人機、AI 辨識與 App 開發，讓想像力在手機與虛擬世界成真。</p>
+                <ul>
+                    <li>AI 智能無人機</li>
+                    <li>元宇宙 VR 空間設計</li>
+                </ul>
+            </div>
+            <div class="course-card">
+                <h3>挑戰：高年級</h3>
+                <p><strong>語法小駭客：</strong>銜接 Python 程式語言，從圖形轉向專業文字寫作。</p>
+                <ul>
+                    <li>Python 基礎語法班</li>
+                    <li>Python 遊戲開發員</li>
+                </ul>
+            </div>
+        </div>
+    </section> -->
+
+    <section id="contests">
+        <h2>科技榮譽殿堂</h2>
+        <div class="contest-box">
+            <div class="contest-tag">IKCC 國際程式賽</div>
+            <div class="contest-tag">APCS 先修檢測</div>
+            <div class="contest-tag">TIRT 全能機器人賽</div>
+            <div class="contest-tag">世界機關王 - R4M 機器人任務賽</div>
+            <div class="contest-tag">世界機關王 - GMJr 積木創客盃</div>
+            <div class="contest-tag">中小學資訊應用賽</div>
+        </div>
+    </section>
+
+    <!-- <section id="contact">
+        <h2>跟我們一起探險吧！</h2>
+        <div class="contact-container">
+            <form>
+                <input type="text" placeholder="寶貝姓名" required>
+                <input type="text" placeholder="家長聯絡電話" required>
+                <select style="padding: 15px; border-radius: 15px; border: 2px solid #FF9F1C55;">
+                    <option>感興趣的課程階段</option>
+                    <option>低年級啟蒙</option>
+                    <option>中年級核心</option>
+                    <option>中高年級應用</option>
+                    <option>高年級 Python</option>
+                </select>
+                <textarea rows="4" placeholder="有什麼悄悄話想告訴老師嗎？"></textarea>
+                <button type="button">預約免費體驗課程</button>
+            </form>
+        </div>
+    </section> -->
+
+
+    <section id="line-contact">
+        <div class="line-section">
+            <h2>立即諮詢</h2>
+            <p>想了解更多課程細節嗎？加入我們的 LINE 官方帳號，<br>專業老師將為您詳細解答！</p>
+            <br>
+            <div style="margin-top: 20px;">
+                <p style="font-size: 0.9rem; color: #059669;">掃描下方 QR Code 加入！</p>
+                <img src="183809.jpg" alt="Line QR Code" class="qr-code">
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>© 2025 🚀 科技小奇兵 | 讓孩子與科技做朋友</p>
+    </footer>
+
+</body>
+</html>
